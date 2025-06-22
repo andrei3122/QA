@@ -12,3 +12,7 @@ Hovering the mouse over Pricing will show a dropdown menu with prices
 
 Actual results:
 The Pricing link is the only clickable option.
+
+Attachments:
+A Gif attachment showcasing the issue
+![OrangeHRM - Pricing Inconsistency](https://github.com/user-attachments/assets/6f78eea3-012f-4037-91e2-313504f0184a)
