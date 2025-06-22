@@ -3,7 +3,7 @@ It has been discovered that, when hovering the mouse over the items at the top o
 
 Steps to reproduce:
 1. Open a browser (Google Chrome)
-2. Got to https://www.orangehrm.com/
+2. Go to https://www.orangehrm.com/
 3. Hover the mouse over the items at the top of the page
 4. Observe that Pricing cannot be hovered
 
