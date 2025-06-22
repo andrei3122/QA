@@ -14,6 +14,4 @@ bug-reports/ # Detailed bug reports
 automated-tests/ # Future automated test scripts
 screenshots/ # Supporting images
 
-css
-
 Feel free to explore!
