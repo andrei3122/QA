@@ -1,0 +1,14 @@
+Description:
+It has been discovered that, when hovering the mouse over the items at the top of the main page, each item goes into drop-down mode showing multiple options, while pricing is only clickable. This inconsistency may confuse users expecting uniform behavior.
+
+Steps to reproduce:
+1. Open a browser (Google Chrome)
+2. Got to https://www.orangehrm.com/
+3. Hover the mouse over the items at the top of the page
+4. Observe that Pricing cannot be hovered
+
+Expected results:
+Hovering the mouse over Pricing will show a dropdown menu with prices
+
+Actual results:
+The Pricing link is the only clickable option.
