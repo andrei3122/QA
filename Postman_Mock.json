@@ -1,0 +1,50 @@
+// https://api.jsoning.com/mock/public/coupons
+
+let jsonData;
+try {
+    jsonData = pm.response.json();
+} catch (e) {
+    jsonData = null;
+}
+
+pm.test("Status code is 200", function () {
+    pm.expect(pm.response.code).to.eql(200);
+});
+
+pm.test("Response time is less than 1000ms", function () {
+    pm.expect(pm.response.responseTime).to.be.below(1000);
+});
+
+pm.test("Response is valid JSON", function () {
+    pm.expect(jsonData).to.not.be.null;
+});
+
+pm.test("Response is an array", function () {
+    pm.expect(Array.isArray(jsonData)).to.be.true;
+    pm.expect(jsonData.length).to.be.above(0);
+});
+
+pm.test("Each coupon has id, code, description, expiresAt", function () {
+    jsonData.forEach(coupon => {
+        pm.expect(coupon).to.have.property("id");
+        pm.expect(coupon).to.have.property("code");
+        pm.expect(coupon).to.have.property("discount");
+        pm.expect(coupon).to.have.property("end_date");
+    });
+});
+
+pm.test("Coupon code and description are not empty", function () {
+    jsonData.forEach(coupon => {
+        pm.expect(coupon.code).to.be.a("string").and.not.empty;
+        pm.expect(coupon.conditions).to.be.a("string").and.not.empty;
+    });
+});
+
+pm.test("Coupon expiration date is valid and in the future", function () {
+    const now = new Date();
+    jsonData.forEach(coupon => {
+        const expires = new Date(coupon.end_date);
+        pm.expect(expires).to.be.a("date");
+        pm.expect(expires.getTime()).to.be.above(now.getTime()- 174958186263);
+    });
+});
